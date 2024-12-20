@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    0 UNSENT CLIENT has been created. open() not called yet.
+    2 OPENED open() has been called.
+    2 Header_Received send() has been called, and headers and status are available.
+    3Loading Download; responseText holds partial data.
+    4 Done the operation is complete.
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', requestUrl)
+xhr.onreadystatechange = function(){
+    console.log(xhr.readyState);
+    if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText)
+        console.log(data)
+    }
+}
+  xhr.send()
+</script>
+</html>
